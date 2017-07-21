@@ -1,0 +1,16 @@
+{
+  "name": "agora-smart-contracts",
+  "version": "1.0.0",
+  "description": "Agora marketplace smart contracts",
+  "scripts": {
+    "build": "solcjs --bin --optimize ./contracts/**/*.sol --output-dir ./bin/",
+    "test": "mocha"
+  },
+  "author": "Jérémy SEBAN",
+  "devDependencies": {
+    "ethereumjs-testrpc": "^4.0.1",
+    "mocha": "^3.4.2",
+    "solc": "^0.4.13",
+    "web3": "^0.19.1"
+  }
+}
