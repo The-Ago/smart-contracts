@@ -8,6 +8,7 @@
   },
   "author": "Jérémy SEBAN",
   "devDependencies": {
+    "bignumber.js": "^4.0.2",
     "ethereumjs-testrpc": "^4.0.1",
     "mocha": "^3.4.2",
     "solc": "^0.4.13",
