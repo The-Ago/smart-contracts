@@ -3,16 +3,7 @@ const BigNumber = require('bignumber.js');
 const utils = require('./utils.js');
 const web3 = utils.web3;
 
-const compiled_contract = utils.compileContract(
-  ['agora_token.sol', 'lib/erc20_interface.sol'],
-  [
-    ['icoStartBlock = 4116800','icoStartBlock = 10'],
-    ['icoPremiumEndBlock = icoStartBlock + 78776','icoPremiumEndBlock = icoStartBlock + 25'],
-    ['icoEndBlock = icoStartBlock + 315106','icoEndBlock = icoStartBlock + 50'],
-    ['uint256 constant minimumToRaise = 500 ether;', 'uint256 constant minimumToRaise = 30 ether;'],
-    ['return (block.number - block.number % 157553);', 'return (block.number - block.number % 50);']
-  ]
-).contracts['agora_token.sol:AgoraToken']
+const agora_contracts = require('./agora_contracts.js');
 
 describe('contract AgoraToken',function() {
   this.timeout(10000);
@@ -23,7 +14,7 @@ describe('contract AgoraToken',function() {
   before(function(done) {
   	web3.eth.getAccounts(function(err, acct) {
   		accounts = acct
-      utils.deployContract(accounts[0], compiled_contract).then(
+      utils.deployContract(accounts[0], agora_contracts['agora_token.sol:AgoraToken']).then(
         function(deployed_contract) {
           subject = deployed_contract;
           done();
