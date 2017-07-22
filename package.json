@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Agora marketplace smart contracts",
   "scripts": {
-    "build": "solcjs --bin --optimize ./contracts/**/*.sol --output-dir ./bin/",
+    "start": "solcjs --bin --optimize ./contracts/**/*.sol --output-dir ./bin/",
     "test": "mocha"
   },
   "author": "Jérémy SEBAN",
